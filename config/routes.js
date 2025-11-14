@@ -159,6 +159,7 @@ module.exports.routes = {
   'POST /kong/*': 'KongProxyController.proxy',
   'PUT /kong/*': 'KongProxyController.proxy',
   'PATCH /kong/*': 'KongProxyController.proxy',
+  'HEAD /kong/*': 'KongProxyController.proxy',
   'DELETE /kong/*': 'KongProxyController.proxy'
 
 

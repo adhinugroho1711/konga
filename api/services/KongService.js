@@ -43,6 +43,10 @@ var KongService = {
         var basicAuthtoken = Buffer.from(connection.username + ":" + connection.password).toString('base64');
         headers.Authorization = "Basic " + basicAuthtoken;
         break;
+      case "kong_admin_token":
+        // Kong Enterprise RBAC token header
+        headers['Kong-Admin-Token'] = connection.kong_admin_token;
+        break;
     }
 
     return headers;

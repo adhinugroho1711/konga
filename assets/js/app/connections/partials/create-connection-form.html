@@ -34,6 +34,15 @@
                 <a href="https://getkong.org/docs/latest/secure-admin-api/#kong-api-loopback" target="_blank">Check out how to setup a JWT based "loop-back" API</a>.
             </div>
         </uib-tab>
+        <uib-tab index="4" ng-click="node.type='kong_admin_token'">
+            <uib-tab-heading>
+                KONG ADMIN TOKEN
+            </uib-tab-heading>
+            <br>
+            <div class="alert alert-info text-small">
+                Konga will connect to Kong Enterprise Admin API using a Kong-Admin-Token header (RBAC token).
+            </div>
+        </uib-tab>
         <uib-tab index="3" ng-click="node.type='basic_auth'">
             <uib-tab-heading>
                 BASIC AUTH
@@ -66,6 +75,13 @@
                     <input ng-model="node.kong_api_key" ng-required="node.type=='api_key'" class="form-control" placeholder="The `apikey` ...">
                     <div class="text-danger" ng-if="errors.kong_api_key" data-ng-bind="errors.kong_api_key"></div>
 
+                </div>
+            </div>
+            <div ng-switch-when="kong_admin_token">
+                <div class="form-group" ng-class="{'has-error' : errors.kong_admin_token}">
+                    <label class="control-label">Kong Admin Token <span class="text-danger">*</span></label>
+                    <input ng-model="node.kong_admin_token" ng-required="node.type=='kong_admin_token'" class="form-control" placeholder="Value for Kong-Admin-Token header">
+                    <div class="text-danger" ng-if="errors.kong_admin_token" data-ng-bind="errors.kong_admin_token"></div>
                 </div>
             </div>
             <div ng-switch-when="jwt">
