@@ -17,7 +17,7 @@
 
                 $scope.node = _node;
 
-                $scope.active = ['default','key_auth','jwt','basic_auth'].indexOf($scope.node.type);
+                $scope.active = ['default','key_auth','jwt','basic_auth','kong_admin_token'].indexOf($scope.node.type);
 
                 $scope.close = function(){
                     $uibModalInstance.dismiss();

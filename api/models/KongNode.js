@@ -27,7 +27,7 @@ var defaultModel = _.merge(_.cloneDeep(require('../base/Model')), {
 
     type: {
       type: 'string',
-      enum: ['default', 'key_auth', 'jwt', 'basic_auth'],
+      enum: ['default', 'key_auth', 'jwt', 'basic_auth', 'kong_admin_token'],
       defaultsTo: 'default'
     },
 
@@ -45,6 +45,11 @@ var defaultModel = _.merge(_.cloneDeep(require('../base/Model')), {
     },
 
     kong_api_key: {
+      type: 'string',
+      defaultsTo: ''
+    },
+
+    kong_admin_token: {
       type: 'string',
       defaultsTo: ''
     },

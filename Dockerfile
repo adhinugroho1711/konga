@@ -5,10 +5,10 @@ COPY . /app
 WORKDIR /app
 
 RUN apk upgrade --update \
-    && apk add bash git ca-certificates \
+    && apk add bash git ca-certificates python2 make g++ \
     && npm install -g bower \
     && npm --unsafe-perm --production install \
-    && apk del git \
+    && apk del git python2 make g++ \
     && rm -rf /var/cache/apk/* \
         /app/.git \
         /app/screenshots \
